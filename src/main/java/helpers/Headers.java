@@ -1,6 +1,7 @@
-package org.example.helpers;
+package helpers;
 
 import java.net.HttpURLConnection;
+import java.util.Base64;
 
 public class Headers {
     // Константы для HTTP-запросов
@@ -12,6 +13,8 @@ public class Headers {
     private static final String CONNECTION = "Keep-Alive";
     private static final String COOKIE = "DVCLIENT=117PC0033_125e1798";
     private static final String USER_AGENT = "DVHttpClient";
+    private static final String AUTH_CREDENTIALS = "DIGDES\\sbrf01:P@ssw0rd01"; // Замените на ваши учетные данные
+
 
     public static void configureConnection(HttpURLConnection connection) throws Exception {
         connection.setRequestMethod(REQUEST_METHOD);
@@ -21,6 +24,7 @@ public class Headers {
         connection.setRequestProperty("Connection", CONNECTION);
         connection.setRequestProperty("Cookie", COOKIE);
         connection.setRequestProperty("User-Agent", USER_AGENT);
+        connection.setRequestProperty("Authorization", getBasicAuthHeader());
         connection.setDoOutput(true);
     }
 
@@ -32,7 +36,12 @@ public class Headers {
         connection.setRequestProperty("Connection", CONNECTION);
         connection.setRequestProperty("Cookie", COOKIE);
         connection.setRequestProperty("User-Agent", USER_AGENT);
+        connection.setRequestProperty("Authorization", getBasicAuthHeader());
         connection.setDoOutput(true);
+
     }
 
+    private static String getBasicAuthHeader() {
+        return "Basic " + Base64.getEncoder().encodeToString(Headers.AUTH_CREDENTIALS.getBytes());
+    }
 }

@@ -1,4 +1,4 @@
-package org.example.helpers;
+package helpers;
 
 public class Urls {
     public static final String GREEN_5050 = "http://green.vdags.digdes.com:5050/StorageServer/StorageServerService.asmx";

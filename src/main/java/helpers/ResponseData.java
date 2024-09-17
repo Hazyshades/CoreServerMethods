@@ -1,4 +1,4 @@
-package org.example;
+package helpers;
 
 public class ResponseData {
     private final int responseCode;

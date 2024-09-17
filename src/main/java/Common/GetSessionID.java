@@ -1,7 +1,7 @@
-package org.example.linux;
+package Common;
 
-import org.example.helpers.Headers;
-import org.example.helpers.RequestBodies;
+import helpers.Headers;
+import helpers.RequestBodies;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,28 +9,12 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static org.example.helpers.Urls.GREEN_5050;
-
-public class GetSessionID_Linux {
-
-    public static void main(String[] args) {
-        try {
-            // Получаем sessionID
-            String sessionID = getSessionID();
-            if (sessionID != null) {
-                System.out.println("Session ID: " + sessionID);
-            } else {
-                System.out.println("Session ID not found in the response.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+public class GetSessionID {
 
     // Метод для получения sessionID
-    public static String getSessionID() throws Exception {
+    public static String getSessionID(String Url) throws Exception {
         // URL для аутентификации
-        URL url = new URL(GREEN_5050);
+        URL url = new URL(Url);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         //стввим хедер
