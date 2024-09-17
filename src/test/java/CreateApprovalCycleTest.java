@@ -1,22 +1,24 @@
 package org.example;
 
 import ApprovalCycle.CreateApprovalCycle;
-import helpers.Data;
 import Common.GetSessionID;
+import helpers.Data;
 import org.junit.jupiter.api.Test;
 
 import static ApprovalCycle.CreateApprovalCycle.createApprovalCycle;
 import static ApprovalCycle.CreateApprovalCycleWithTemplate.createApprovalCycleWithTemplate;
 import static ApprovalCycle.CreateApprovalWithCycleSourceApprovalCycle.createApprovalCycleWithSourceApprovalCycleRowID;
-import static helpers.Urls.SERVER_LINUX;
 import static Common.GetSessionID.getSessionID;
+import static helpers.Urls.SERVER_LINUX;
+import static org.junit.Assert.assertNotNull;
 
 public class CreateApprovalCycleTest {
 
     @Test
     public void testCreateApprovalCycle() throws Exception {
         // Тест для метода createApprovalCycle
-        createApprovalCycle(getSessionID(SERVER_LINUX), SERVER_LINUX, Data.regCardIdLinux);
+        String approvalCycleRowId = createApprovalCycle(getSessionID(SERVER_LINUX), SERVER_LINUX, Data.regCardIdLinux);
+        assertNotNull(approvalCycleRowId, "Значение approvalCycleRowId пустое");
     }
 
     @Test
