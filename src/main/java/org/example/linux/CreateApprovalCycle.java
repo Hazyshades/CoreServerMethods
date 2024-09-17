@@ -16,8 +16,8 @@ public class CreateApprovalCycle {
 
     public static void main(String[] args) throws Exception {
         // Получаем результат запроса на создание Approval Cycle
-        ResponseData response = createApprovalCycle(GetSessionID_LINUX.getSessionID(), Data.regCardIdGREEN);
-      //  ResponseData response = createApprovalCycleWithTemplate(GetSessionID_LINUX.getSessionID(), Data.regCardIdGREEN,
+        ResponseData response = createApprovalCycle(GetSessionID_Linux.getSessionID(), Data.regCardIdGREEN);
+      //  ResponseData response = createApprovalCycleWithTemplate(GetSessionID_Linux.getSessionID(), Data.regCardIdGREEN,
              //   Data.templateId, true);
 
         // Выводим код ответа и тело ответа

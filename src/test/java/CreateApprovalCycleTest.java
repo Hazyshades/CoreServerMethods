@@ -11,8 +11,8 @@ public class CreateApprovalCycleTest {
     @Test
     public void testCreateApprovalCycle() throws Exception {
 
-        //createApprovalCycleWithTemplate(GetSessionID_LINX.getSessionID(), Data.regCardIdGREEN, Data.templateId, true);
+        //createApprovalCycleWithTemplate(GetSessionID_Linux.getSessionID(), Data.regCardIdGREEN, Data.templateId, true);
 
-        createApprovalCycle(GetSessionID_LINUX.getSessionID(), Data.regCardIdGREEN);
+        createApprovalCycle(GetSessionID_Linux.getSessionID(), Data.regCardIdGREEN);
     }
 }

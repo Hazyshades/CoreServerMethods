@@ -25,16 +25,12 @@ public class Withdraw {
         // Получаем результат запроса на создание Approval Cycle
         ResponseData response = createApprovalCycle(GetSessionID_LINUX.getSessionID(), Data.regCardIdGREEN);
 
-        // Выводим код ответа и тело ответа
-     //   System.out.println("Response Code: " + response.getResponseCode());
-     //   System.out.println("Response Body: " + response.getResponseBody());
-
         // Извлечение значения approvalCycleRowId из XML
         String approvalCycleRowId = extractApprovalCycleRowId(response.getResponseBody());
         System.out.println("Approval Cycle Row ID: " + approvalCycleRowId);
     }
 
-    // Метод для создания Approval Cycle
+    // Метод для создания A pproval Cycle
     public static ResponseData createApprovalCycle(String sessionID, String regCardId) throws Exception {
         URL url = new URL(Urls.GREEN_5050);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

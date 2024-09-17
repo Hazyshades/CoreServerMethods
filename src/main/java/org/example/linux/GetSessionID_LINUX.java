@@ -11,7 +11,7 @@ import java.net.URL;
 
 import static org.example.helpers.Urls.GREEN_5050;
 
-public class GetSessionID_LINUX {
+public class GetSessionID_Linux {
 
     public static void main(String[] args) {
         try {
@@ -33,7 +33,7 @@ public class GetSessionID_LINUX {
         URL url = new URL(GREEN_5050);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-        // Установка метода и заголовков
+        //стввим хедер
         Headers.configureConnectionSession(connection);
 
         // SOAP-тело для SessionLoginEx
