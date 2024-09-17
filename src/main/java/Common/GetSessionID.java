@@ -21,7 +21,7 @@ public class GetSessionID {
         Headers.configureConnectionSession(connection);
 
         // SOAP-тело для SessionLoginEx
-        String soapRequest = RequestBodies.getSessionID_LINUX();
+        String soapRequest = RequestBodies.getSessionID();
 
         // Отправка запроса
         try (OutputStream outputStream = connection.getOutputStream()) {

@@ -2,7 +2,7 @@ package helpers;
 
 public class RequestBodies {
 
-    public static String getSessionID_LINUX() {
+    public static String getSessionID() {
         return "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" " +
                         "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
                         "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" " +
@@ -70,8 +70,6 @@ public class RequestBodies {
                 "</soap:Envelope>";
     }
 
-
-
     public static String createApprovalCycle_regCardId_templateId_copyAppendix(String sessionID, String regCardId, String templateId, boolean copyAppendix) {
         return "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" " +
                 "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
@@ -101,8 +99,6 @@ public class RequestBodies {
                 "</soap:Body>" +
                 "</soap:Envelope>";
     }
-
-
 
 }
 

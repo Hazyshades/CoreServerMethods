@@ -1,4 +1,4 @@
-package ApprivakCycle;
+package ApprovalCycle;
 
 import helpers.*;
 
@@ -9,25 +9,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class CreateApprovalCycleWithTemplate {
+public class CreateApprovalCycle {
 
-    // Метод для создания Approval Cycle с использованием шаблона
-    public static String createApprovalCycleWithTemplate(String sessionID, String regCardId, String templateId, Boolean copyAppendix) throws Exception {
-        URL url = new URL(Urls.GREEN_5050);
+    public static String createApprovalCycle(String sessionID, String regCardId) throws Exception {
+        URL url = new URL(Urls.SERVER_LINUX);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         // Установка метода и заголовков
         Headers.configureConnection(connection);
 
-        // Отправка запроса с дополнительными параметрами templateId и copyAppendix
+        // Отправка запроса
         try (OutputStream outputStream = connection.getOutputStream()) {
-            String requestBody = RequestBodies.createApprovalCycle_regCardId_templateId_copyAppendix(sessionID, regCardId, templateId, copyAppendix);
-            outputStream.write(requestBody.getBytes(StandardCharsets.UTF_8));
+            outputStream.write(RequestBodies.createApprovalCycle_regCardId(sessionID, regCardId).getBytes(StandardCharsets.UTF_8));
         }
-
         ResponseData response = getResponseData(connection);
-        // System.out.println(TransformXML.extractApprovalCycleRowId(response.getResponseBody()));
-        // Получение и возврат данных ответа
+
         return TransformXML.extractApprovalCycleRowId(response.getResponseBody());
     }
 

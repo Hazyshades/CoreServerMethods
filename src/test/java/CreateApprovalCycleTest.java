@@ -1,14 +1,14 @@
 package org.example;
 
-import ApprivakCycle.CreateApprovalCycle;
+import ApprovalCycle.CreateApprovalCycle;
 import helpers.Data;
 import Common.GetSessionID;
 import org.junit.jupiter.api.Test;
 
-import static ApprivakCycle.CreateApprovalCycle.createApprovalCycle;
-import static ApprivakCycle.CreateApprovalCycleWithTemplate.createApprovalCycleWithTemplate;
-import static ApprivakCycle.CreateApprovalWithCycleSourceApprovalCycle.createApprovalCycleWithSourceApprovalCycleRowID;
-import static helpers.Urls.GREEN_5050;
+import static ApprovalCycle.CreateApprovalCycle.createApprovalCycle;
+import static ApprovalCycle.CreateApprovalCycleWithTemplate.createApprovalCycleWithTemplate;
+import static ApprovalCycle.CreateApprovalWithCycleSourceApprovalCycle.createApprovalCycleWithSourceApprovalCycleRowID;
+import static helpers.Urls.SERVER_LINUX;
 import static Common.GetSessionID.getSessionID;
 
 public class CreateApprovalCycleTest {
@@ -16,27 +16,27 @@ public class CreateApprovalCycleTest {
     @Test
     public void testCreateApprovalCycle() throws Exception {
         // Тест для метода createApprovalCycle
-        createApprovalCycle(getSessionID(GREEN_5050), Data.regCardIdGREEN);
+        createApprovalCycle(getSessionID(SERVER_LINUX), Data.regCardIdLinux);
     }
 
     @Test
     public void testCreateApprovalCycleWithTemplate() throws Exception {
         // Тест для метода createApprovalCycleWithTemplate
         createApprovalCycleWithTemplate(
-                GetSessionID.getSessionID(GREEN_5050),
-                Data.regCardIdGREEN,
-                Data.templateId,
-                true // Пример использования copyAppendix
+                GetSessionID.getSessionID(SERVER_LINUX),
+                Data.regCardIdLinux,
+                Data.templateIdLinux,
+                true
         );
     }
 
     @Test
     public void testCreateApprovalCycleWithSourceApprovalCycleRowID() throws Exception {
         createApprovalCycleWithSourceApprovalCycleRowID(
-                GetSessionID.getSessionID(GREEN_5050),
-                Data.regCardIdGREEN, CreateApprovalCycle.createApprovalCycle(
-                        GetSessionID.getSessionID(GREEN_5050),
-                        Data.regCardIdGREEN),
+                GetSessionID.getSessionID(SERVER_LINUX),
+                Data.regCardIdLinux, CreateApprovalCycle.createApprovalCycle(
+                        GetSessionID.getSessionID(SERVER_LINUX),
+                        Data.regCardIdLinux),
                         true);
     }
 

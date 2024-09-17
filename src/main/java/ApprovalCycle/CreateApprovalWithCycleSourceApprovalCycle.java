@@ -1,6 +1,9 @@
-package ApprivakCycle;
+package ApprovalCycle;
 
-import helpers.*;
+import helpers.Headers;
+import helpers.RequestBodies;
+import helpers.ResponseData;
+import helpers.Urls;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,27 +12,26 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class CreateApprovalCycle {
+public class CreateApprovalWithCycleSourceApprovalCycle {
 
-    // Метод для создания Approval Cycle
-    public static String createApprovalCycle(String sessionID, String regCardId) throws Exception {
-        URL url = new URL(Urls.GREEN_5050);
+    public static ResponseData createApprovalCycleWithSourceApprovalCycleRowID(
+            String sessionID,
+            String regCardId,
+            String sourceApprovalCycleRowID,
+            Boolean copyAppendix) throws Exception {
+        URL url = new URL(Urls.SERVER_LINUX);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-        // Установка метода и заголовков
         Headers.configureConnection(connection);
 
-        // Отправка запроса
         try (OutputStream outputStream = connection.getOutputStream()) {
-            outputStream.write(RequestBodies.createApprovalCycle_regCardId(sessionID, regCardId).getBytes(StandardCharsets.UTF_8));
+            String requestBody = RequestBodies.createApprovalCycle_regCardId_sourceApprovalCycleRowId_copyAppendix(sessionID, regCardId, sourceApprovalCycleRowID, copyAppendix);
+            outputStream.write(requestBody.getBytes(StandardCharsets.UTF_8));
         }
-        ResponseData response = getResponseData(connection);
-       // System.out.println(TransformXML.extractApprovalCycleRowId(response.getResponseBody()));
-        // Получение и возврат данных ответа
-        return TransformXML.extractApprovalCycleRowId(response.getResponseBody());
+
+        return getResponseData(connection);
     }
 
-    // Метод для получения данных ответа от сервера
     private static ResponseData getResponseData(HttpURLConnection connection) throws Exception {
         int responseCode = connection.getResponseCode();
         StringBuilder responseBody = new StringBuilder();
@@ -43,3 +45,4 @@ public class CreateApprovalCycle {
         return new ResponseData(responseCode, responseBody.toString());
     }
 }
+
