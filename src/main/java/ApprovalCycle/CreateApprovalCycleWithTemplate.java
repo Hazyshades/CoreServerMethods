@@ -11,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 
 public class CreateApprovalCycleWithTemplate {
 
-    public static String createApprovalCycleWithTemplate(String sessionID, String regCardId, String templateId, Boolean copyAppendix) throws Exception {
-        URL url = new URL(Urls.SERVER_LINUX);
+    public static String createApprovalCycleWithTemplate(String sessionID, String UrlServer,  String regCardId, String templateId, Boolean copyAppendix) throws Exception {
+        URL url = new URL(UrlServer);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         // Установка метода и заголовков

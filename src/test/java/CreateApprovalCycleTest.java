@@ -16,7 +16,7 @@ public class CreateApprovalCycleTest {
     @Test
     public void testCreateApprovalCycle() throws Exception {
         // Тест для метода createApprovalCycle
-        createApprovalCycle(getSessionID(SERVER_LINUX), Data.regCardIdLinux);
+        createApprovalCycle(getSessionID(SERVER_LINUX), SERVER_LINUX, Data.regCardIdLinux);
     }
 
     @Test
@@ -24,6 +24,7 @@ public class CreateApprovalCycleTest {
         // Тест для метода createApprovalCycleWithTemplate
         createApprovalCycleWithTemplate(
                 GetSessionID.getSessionID(SERVER_LINUX),
+                SERVER_LINUX,
                 Data.regCardIdLinux,
                 Data.templateIdLinux,
                 true
@@ -34,10 +35,13 @@ public class CreateApprovalCycleTest {
     public void testCreateApprovalCycleWithSourceApprovalCycleRowID() throws Exception {
         createApprovalCycleWithSourceApprovalCycleRowID(
                 GetSessionID.getSessionID(SERVER_LINUX),
-                Data.regCardIdLinux, CreateApprovalCycle.createApprovalCycle(
+                SERVER_LINUX,
+                Data.regCardIdLinux,
+                CreateApprovalCycle.createApprovalCycle(
                         GetSessionID.getSessionID(SERVER_LINUX),
+                        SERVER_LINUX,
                         Data.regCardIdLinux),
-                        true);
+                true);
     }
 
 }

@@ -11,8 +11,11 @@ import java.nio.charset.StandardCharsets;
 
 public class CreateApprovalCycle {
 
-    public static String createApprovalCycle(String sessionID, String regCardId) throws Exception {
-        URL url = new URL(Urls.SERVER_LINUX);
+    public static String createApprovalCycle(
+            String sessionID,
+            String UrlServer,
+            String regCardId) throws Exception {
+        URL url = new URL(UrlServer);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         // Установка метода и заголовков

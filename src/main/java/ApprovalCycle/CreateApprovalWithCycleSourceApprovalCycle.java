@@ -3,7 +3,6 @@ package ApprovalCycle;
 import helpers.Headers;
 import helpers.RequestBodies;
 import helpers.ResponseData;
-import helpers.Urls;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,10 +15,11 @@ public class CreateApprovalWithCycleSourceApprovalCycle {
 
     public static ResponseData createApprovalCycleWithSourceApprovalCycleRowID(
             String sessionID,
+            String UrlServer,
             String regCardId,
             String sourceApprovalCycleRowID,
             Boolean copyAppendix) throws Exception {
-        URL url = new URL(Urls.SERVER_LINUX);
+        URL url = new URL(UrlServer);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         Headers.configureConnection(connection);
