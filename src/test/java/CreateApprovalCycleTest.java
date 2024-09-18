@@ -1,5 +1,3 @@
-package org.example;
-
 import ApprovalCycle.CreateApprovalCycle;
 import Common.GetSessionID;
 import helpers.Data;

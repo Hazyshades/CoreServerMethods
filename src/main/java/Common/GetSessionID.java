@@ -17,7 +17,7 @@ public class GetSessionID {
         URL url = new URL(Url);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-        //стввим хедер
+        //Ставим хедер
         Headers.configureConnectionSession(connection);
 
         // SOAP-тело для SessionLoginEx
@@ -45,6 +45,6 @@ public class GetSessionID {
             return responseStr.substring(start, end);
         }
 
-        return null; // Если sessionID не найден
+        return null;
     }
 }

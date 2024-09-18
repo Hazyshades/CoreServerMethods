@@ -9,9 +9,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
 public class TransformXML {
-    // Метод для извлечения approvalCycleRowId из XML
     public static String extractApprovalCycleRowId(String responseBody) throws Exception {
-        // Удаление BOM и очистка XML от нежелательных символов
+        // Удаление BOM и очистка XML от левых символов
         responseBody = removeBOM(responseBody);
         String cleanedXML = cleanXML(responseBody);
         System.out.println("Cleaned XML: " + cleanedXML);
@@ -51,10 +50,10 @@ public class TransformXML {
                 System.out.println(valueElement.getTextContent());
                 return valueElement.getTextContent();
             } else {
-                throw new Exception("Value tag not found in the result XML.");
+                throw new Exception("Value не найден в XML.");
             }
         } else {
-            throw new Exception("Result tag not found in the main XML.");
+            throw new Exception("Result не найден в главной main XML.");
         }
     }
 

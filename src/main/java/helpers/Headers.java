@@ -13,7 +13,7 @@ public class Headers {
     private static final String CONNECTION = "Keep-Alive";
     private static final String COOKIE = "DVCLIENT=117PC0033_125e1798";
     private static final String USER_AGENT = "DVHttpClient";
-    private static final String AUTH_CREDENTIALS = "DIGDES\\sbrf01:P@ssw0rd01"; // Замените на ваши учетные данные
+    private static final String AUTH_CREDENTIALS = "DIGDES\\sbrf01:P@ssw0rd01";
 
 
     public static void configureConnection(HttpURLConnection connection) throws Exception {

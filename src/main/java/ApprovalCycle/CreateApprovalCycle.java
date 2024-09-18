@@ -18,7 +18,7 @@ public class CreateApprovalCycle {
         URL url = new URL(UrlServer);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-        // Установка метода и заголовков
+        // Установка метода и хедер
         Headers.configureConnection(connection);
 
         // Отправка запроса
